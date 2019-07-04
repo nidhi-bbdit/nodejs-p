@@ -1,0 +1,44 @@
+extends layout
+block content
+  -data = data || {}
+  
+  if errors
+    ul.my-errors
+      for error in errors
+        li= error.msg
+  
+  form(action="." method="POST")
+    label(for="name") Name:
+    input(
+      type="text"
+      id="name"
+      name="name"
+      class="form-control"
+      value=data.name
+    )
+    br 
+    br
+    label(for="email") Email:
+    input(
+      type="email"
+      id="email"
+      name="email"
+      class="form-control"
+      value=data.email
+    )
+    br 
+    br
+    label(for="password") Password:
+    input(
+      type="password"
+      id="password"
+      name="password"
+      class="form-control"
+      value=""
+    )
+    br 
+    br
+    input(
+    type="submit" value="Submit"
+    class="btn btn-lg btn-primary btn-block"
+    )

@@ -1,0 +1,38 @@
+extends layout
+block content
+  -data = result || {}
+  if errors
+    ul.my-errors
+      for error in errors
+        li= error.msg
+  form(action="/update" method="POST")
+    label(for="name") Name:
+    input(
+      type="text"
+      id="name"
+      name="name"
+      class="form-control"
+      value=data.name
+    )
+    br 
+    br
+    label(for="email") Email:
+    input(
+      type="email"
+      id="email"
+      name="email"
+      class="form-control"
+      value=data.email
+    )
+    input(
+      type="hidden"
+      id="_id"
+      name="_id"
+      value=data._id
+    )
+    br 
+    br
+    input(
+    type="submit" value="Submit"
+    class="btn btn-lg btn-primary btn-block"
+    )

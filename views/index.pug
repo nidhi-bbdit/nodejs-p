@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  
+  if registrations.length
+    table.listing-table.table-dark.table-striped
+      tr
+        th Name
+        th Email
+        th Action
+      each registration in registrations
+        tr
+          td= registration.name
+          td= registration.email
+          td 
+            a(href =`/delete/${registration._id}`, class="btn btn-lg btn-primary") Delete 
+ 
+            a(href =`/edit/${registration._id}`, class="btn btn-lg btn-primary") Update
+            
+
+  else
+    p No registrations yet
